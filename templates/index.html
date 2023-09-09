@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>查询数据</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <h1>斯坦星球赛事查询工具</h1>
+    <h3>在本页面可以选择查询方式进行对应的查询，选择“查询过往文章”可以通过输入关键词查看以前文章标题含有此关键词；
+        选择“搜索问题关键词”可以通过搜索《十万个做什么》手册的问题序号（比如p1a1）搜索对应问题获取有联系的关键词。
+    </h3>
+    <form method="POST" action="/">
+        <label for="query_type">请选择查询类型：</label>
+        <select id="query_type" name="query_type">
+            <option value="1">查询过往文章</option>
+            <option value="2">搜索问题的关键词</option>
+        </select>
+
+        <div>
+            <label for="query_word">查询文字：</label>
+            <input type="text" id="query_word" name="query_word">
+        </div>
+
+        <div class="button-container-div">
+            <button>查询</button>
+        </div>    
+    </form>
+
+    <div id="query_result">
+        <!-- 查询结果将在这里显示 -->
+        {{ query_result | safe }}
+    </div>
+</body>
+</html>
